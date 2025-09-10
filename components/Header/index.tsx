@@ -11,36 +11,53 @@ const Header = () => {
   const [navigationOpen, setNavigationOpen] = useState(false);
   const [dropdownToggler, setDropdownToggler] = useState(false);
   const [stickyMenu, setStickyMenu] = useState(false);
+  const [activeSection, setActiveSection] = useState<string>("");
 
   const pathUrl = usePathname();
 
-  // Sticky menu
-  const handleStickyMenu = () => {
-    if (window.scrollY >= 80) {
-      setStickyMenu(true);
-    } else {
-      setStickyMenu(false);
-    }
-  };
-
   useEffect(() => {
+    const handleStickyMenu = () => {
+      setStickyMenu(window.scrollY >= 80);
+    };
+
     window.addEventListener("scroll", handleStickyMenu);
     return () => window.removeEventListener("scroll", handleStickyMenu);
   }, []);
 
-  // Función para determinar si es una sección interna (scroll) o ruta externa
-  const isInternalSection = (path: string) => {
-    return !path.startsWith("/"); // Si no empieza con /, es una sección interna
-  };
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+      const sections = document.querySelectorAll("section[id]");
+      console.log("Secciones ahora:", sections);
+
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) setActiveSection(entry.target.id);
+          });
+        },
+        { threshold: 0.6 }
+      );
+
+      sections.forEach(section => observer.observe(section));
+
+      return () => observer.disconnect();
+    }, 100); // espera 100ms
+
+    return () => clearTimeout(timeout);
+  }, [pathUrl]);
 
   const handleSectionClick = (e: React.MouseEvent, sectionId: string) => {
     e.preventDefault();
     const element = document.getElementById(sectionId);
     if (element) {
       element.scrollIntoView({ behavior: "smooth" });
-      setNavigationOpen(false); // Cerrar menú móvil
+      setActiveSection(sectionId); // <-- actualizar inmediatamente
+      setNavigationOpen(false);
     }
   };
+
+  const isInternalSection = (path: string) => !path.startsWith("/");
+
 
   return (
     <header
@@ -124,12 +141,12 @@ const Header = () => {
                     <>
                       <button
                         onClick={() => setDropdownToggler(!dropdownToggler)}
-                        className="flex cursor-pointer items-center justify-between gap-3 hover:text-primary"
+                        className="flex cursor-pointer items-center justify-between gap-3 hover:text-navlink"
                       >
                         {menuItem.title}
                         <span>
                           <svg
-                            className="h-3 w-3 cursor-pointer fill-waterloo group-hover:fill-primary"
+                            className="h-3 w-3 cursor-pointer text-navlink group-hover:text-navlink"
                             xmlns="http://www.w3.org/2000/svg"
                             viewBox="0 0 512 512"
                           >
@@ -142,11 +159,11 @@ const Header = () => {
                         className={`dropdown ${dropdownToggler ? "flex" : ""}`}
                       >
                         {menuItem.submenu.map((item, key) => (
-                          <li key={key} className="hover:text-primary cursor-pointer">
+                          <li key={key} className="hover:text-navlink cursor-pointer">
                             {item.path && isInternalSection(item.path) ? (
                               <button
                                 onClick={(e) => handleSectionClick(e, item.path!)}
-                                className="text-left hover:text-primary cursor-pointer"
+                                className="text-left hover:text-navlink cursor-pointer"
                               >
                                 {item.title}
                               </button>
@@ -163,21 +180,21 @@ const Header = () => {
                         <button
                           onClick={(e) => handleSectionClick(e, menuItem.path!)}
                           className={`${
-                            pathUrl === menuItem.path
-                              ? "text-primary hover:text-primary cursor-pointer"
-                              : "hover:text-primary cursor-pointer"
-                          }`}
+                            activeSection === menuItem.path.replace("#", "")
+                              ? "text-navlink"
+                              : "hover:text-navlink"
+                          } cursor-pointer`}
                         >
                           {menuItem.title}
                         </button>
                       ) : (
                         <Link
                           href={`${menuItem.path}`}
-                          className={
+                          className={`${
                             pathUrl === menuItem.path
-                              ? "text-primary hover:text-primary"
-                              : "hover:text-primary"
-                          }
+                              ? "text-navlink"
+                              : "hover:text-navlink"
+                          }`}
                         >
                           {menuItem.title}
                         </Link>

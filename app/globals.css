@@ -72,6 +72,8 @@
   --animate-line2: line 6s linear infinite;
   --animate-line3: line 9s linear infinite;
 
+  --color-navlink: #EC6240;
+
   @keyframes line {
     0%,
     100% {
@@ -222,4 +224,29 @@ pre {
 
 .active-tab {
   @apply bg-stroke text-black dark:bg-blackho dark:text-white;
+}
+
+/* Animación para el marquesina horizontal */
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  animation: marquee 10s linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
+/* Estilos responsivos para la animación */
+@media (max-width: 768px) {
+  .animate-marquee {
+    animation-duration: 3s; /* Más rápido en móviles */
+  }
 }

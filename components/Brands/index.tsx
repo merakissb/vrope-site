@@ -4,15 +4,22 @@ import SingleBrand from "./SingleBrand";
 import brandData from "./brandData";
 
 const Brands = () => {
+  // Duplicamos los datos para crear un efecto de loop continuo
+  const duplicatedBrands = [...brandData, ...brandData];
+  
   return (
     <>
       {/* <!-- ===== Clients Start ===== --> */}
-      <section className="border border-x-0 border-y-stroke bg-alabaster py-11 dark:border-y-strokedark dark:bg-black">
+      <section className="border border-x-0 border-y-stroke bg-alabaster py-11 dark:border-y-strokedark dark:bg-black overflow-hidden">
         <div className="mx-auto max-w-c-1390 px-4 md:px-8 2xl:px-0">
-          <div className="grid grid-cols-3 items-center justify-center gap-7.5 md:grid-cols-6 lg:gap-12.5 xl:gap-29">
-            {brandData.map((brand, key) => (
-              <SingleBrand brand={brand} key={key} />
-            ))}
+          <div className="relative">
+            <div className="flex animate-marquee whitespace-nowrap">
+              {duplicatedBrands.map((brand, key) => (
+                <div className="inline-block mx-8" key={key}>
+                  <SingleBrand brand={brand} />
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
