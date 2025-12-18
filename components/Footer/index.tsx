@@ -297,7 +297,7 @@ const Footer = () => {
               className="animate_top"
             >
               <p>
-                &copy; {new Date().getFullYear()} Vertical Spa, Todos Los Derechos Reservados.
+                &copy; {new Date().getFullYear()} Vrope, Todos Los Derechos Reservados.
               </p>
             </motion.div>
 
