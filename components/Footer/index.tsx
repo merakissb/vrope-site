@@ -46,17 +46,17 @@ const Footer = () => {
                 </a>
 
                 <p className="mb-10 mt-5">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                  Operamos en proyectos industriales y corporativos.
                 </p>
 
                 <p className="mb-1.5 text-sectiontitle uppercase tracking-[5px]">
-                  contact
+                  contacto
                 </p>
                 <a
                   href="#"
                   className="text-itemtitle font-medium text-black dark:text-white"
                 >
-                  hello@solid.com
+                  contacto@verticalspa.cl
                 </a>
               </motion.div>
 
@@ -80,46 +80,42 @@ const Footer = () => {
                   className="animate_top"
                 >
                   <h4 className="mb-9 text-itemtitle2 font-medium text-black dark:text-white">
-                    Quick Links
+                    Nuestros Estándares
                   </h4>
 
                   <ul>
                     <li>
                       <a
-                        href="#"
-                        className="mb-3 inline-block hover:text-primary"
+                        className="mb-3 inline-block hover:text-[var(--color-primaryOrange)]"
                       >
-                        Home
+                        ✔ Personal certificado
                       </a>
                     </li>
                     <li>
                       <a
-                        href="#"
-                        className="mb-3 inline-block hover:text-primary"
+                        className="mb-3 inline-block hover:text-[var(--color-primaryOrange)]"
                       >
-                        Product
+                        ✔ Protocolos de seguridad
                       </a>
                     </li>
                     <li>
                       <a
-                        href="#"
-                        className="mb-3 inline-block hover:text-primary"
+                        className="mb-3 inline-block hover:text-[var(--color-primaryOrange)]"
                       >
-                        Careers
+                        ✔ Normativa vigente
                       </a>
                     </li>
                     <li>
                       <a
-                        href="#"
-                        className="mb-3 inline-block hover:text-primary"
+                        className="mb-3 inline-block hover:text-[var(--color-primaryOrange)]"
                       >
-                        Pricing
+                        ✔ Equipos homologados
                       </a>
                     </li>
                   </ul>
                 </motion.div>
 
-                <motion.div
+                {/*<motion.div
                   variants={{
                     hidden: {
                       opacity: 0,
@@ -175,9 +171,9 @@ const Footer = () => {
                       </a>
                     </li>
                   </ul>
-                </motion.div>
+                </motion.div> */}
 
-                <motion.div
+                {/*<motion.div
                   variants={{
                     hidden: {
                       opacity: 0,
@@ -237,7 +233,7 @@ const Footer = () => {
                       </button>
                     </div>
                   </form>
-                </motion.div>
+                </motion.div>*/}
               </div>
             </div>
           </div>
@@ -245,7 +241,7 @@ const Footer = () => {
 
           {/* <!-- Footer Bottom --> */}
           <div className="flex flex-col flex-wrap items-center justify-center gap-5 border-t border-stroke py-7 dark:border-strokedark lg:flex-row lg:justify-between lg:gap-0">
-            <motion.div
+            {/*<motion.div
               variants={{
                 hidden: {
                   opacity: 0,
@@ -280,7 +276,7 @@ const Footer = () => {
                   </a>
                 </li>
               </ul>
-            </motion.div>
+            </motion.div>*/}
 
             <motion.div
               variants={{
@@ -301,11 +297,11 @@ const Footer = () => {
               className="animate_top"
             >
               <p>
-                &copy; {new Date().getFullYear()} Solid. All rights reserved
+                &copy; {new Date().getFullYear()} Vertical Spa, Todos Los Derechos Reservados.
               </p>
             </motion.div>
 
-            <motion.div
+            {/*<motion.div
               variants={{
                 hidden: {
                   opacity: 0,
@@ -417,7 +413,7 @@ const Footer = () => {
                   </a>
                 </li>
               </ul>
-            </motion.div>
+            </motion.div>*/}
           </div>
           {/* <!-- Footer Bottom --> */}
         </div>
