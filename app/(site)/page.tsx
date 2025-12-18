@@ -14,6 +14,8 @@ import Blog from "@/components/Blog";
 import Testimonial from "@/components/Testimonial";
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://www.vrope.cl"),
+
   title: "Vrope | Mantenimiento y Trabajos en Altura en Chile",
   description: "Especialistas en limpieza de fachadas, instalación de líneas de vida, hidrolavado y seguridad industrial en altura. Servicio profesional en toda la Región Metropolitana.",
   keywords: ["limpieza de fachadas", "trabajos en altura Chile", "líneas de vida", "mantenimiento de edificios", "Vertical SpA", "Vrope"],
