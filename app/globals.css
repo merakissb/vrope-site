@@ -72,7 +72,12 @@
   --animate-line2: line 6s linear infinite;
   --animate-line3: line 9s linear infinite;
 
-  --color-navlink: #EC6240;
+  --color-primaryOrange: #EC6240;
+  --color-softBeige: #F0BCA5;
+  --color-darkNavi: #05151F;
+  --color-skyBlue: #a0ccea;
+  --color-snowGrey: #F9F9F9;
+  --color-deepBlue: #133450;
 
   @keyframes line {
     0%,

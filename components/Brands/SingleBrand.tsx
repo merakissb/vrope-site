@@ -24,7 +24,7 @@ const SingleBrand = ({ brand }: { brand: Brand }) => {
         whileInView="visible"
         transition={{ duration: 1, delay: id }}
         viewport={{ once: true }}
-        href={href}
+        //href={href}
         className="animate_top mx-w-full relative block h-10 w-[98px]"
       >
         <Image

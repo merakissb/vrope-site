@@ -78,7 +78,7 @@ const Header = () => {
               className="hidden w-full dark:block"
             />
             <Image
-              src="/images/logo/LOGO - 12.svg"
+              src="/images/logo/LOGO_2.svg"
               alt="logo"
               width={119.03}
               height={30}
@@ -141,12 +141,12 @@ const Header = () => {
                     <>
                       <button
                         onClick={() => setDropdownToggler(!dropdownToggler)}
-                        className="flex cursor-pointer items-center justify-between gap-3 hover:text-navlink"
+                        className="flex cursor-pointer items-center justify-between gap-3 hover:text-[var(--color-primaryOrange)]"
                       >
                         {menuItem.title}
                         <span>
                           <svg
-                            className="h-3 w-3 cursor-pointer text-navlink group-hover:text-navlink"
+                            className="h-3 w-3 cursor-pointer text-[var(--color-primaryOrange)] group-hover:text-[var(--color-primaryOrange)]"
                             xmlns="http://www.w3.org/2000/svg"
                             viewBox="0 0 512 512"
                           >
@@ -159,11 +159,11 @@ const Header = () => {
                         className={`dropdown ${dropdownToggler ? "flex" : ""}`}
                       >
                         {menuItem.submenu.map((item, key) => (
-                          <li key={key} className="hover:text-navlink cursor-pointer">
+                          <li key={key} className="hover:text-[var(--color-primaryOrange)] cursor-pointer">
                             {item.path && isInternalSection(item.path) ? (
                               <button
                                 onClick={(e) => handleSectionClick(e, item.path!)}
-                                className="text-left hover:text-navlink cursor-pointer"
+                                className="text-left hover:text-[var(--color-primaryOrange)] cursor-pointer"
                               >
                                 {item.title}
                               </button>
@@ -181,8 +181,8 @@ const Header = () => {
                           onClick={(e) => handleSectionClick(e, menuItem.path!)}
                           className={`${
                             activeSection === menuItem.path.replace("#", "")
-                              ? "text-navlink"
-                              : "hover:text-navlink"
+                              ? "text-[var(--color-primaryOrange)]"
+                              : "hover:text-[var(--color-primaryOrange)]"
                           } cursor-pointer`}
                         >
                           {menuItem.title}
@@ -192,8 +192,8 @@ const Header = () => {
                           href={`${menuItem.path}`}
                           className={`${
                             pathUrl === menuItem.path
-                              ? "text-navlink"
-                              : "hover:text-navlink"
+                              ? "text-text-[var(--color-primaryOrange)]"
+                              : "hover:text-text-[var(--color-primaryOrange)]"
                           }`}
                         >
                           {menuItem.title}
